@@ -4,7 +4,7 @@ const { User, Thought } = require('../models');
 module.exports = {
   // Get all students
   getAllUsers(req, res) {
-    User.find().populate("thoughts").populate("friends")
+    User.find()
       .then((users) => {
          res.json(users);
       })
@@ -57,7 +57,7 @@ module.exports = {
   // Remove assignment from a student
   removeFriend(req, res) {
     console.log('You are removing a friend');
-    User.findOneAndRemove(
+    User.findOneAndUpdate(
       { _id: req.params.userId },
       { $pull: { friends: req.params.friendId } },
       { runValidators: true, new: true }

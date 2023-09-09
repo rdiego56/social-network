@@ -18,6 +18,10 @@ connection.once('open', async () => {
     {
       username: "Diego",
       email: "diego@gmail.com"
+    },
+    {
+      username: "Ben",
+      email: "ben@ben.com"
     }
     
   ];
